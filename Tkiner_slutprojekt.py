@@ -124,9 +124,5 @@ lbl_result = Label(top_fourth, bg=colour2, width=1, font=("T-25", 36), textvaria
 lbl_result.pack(side=LEFT,padx=5,pady=5)
 
 
-
-
-
-
 # =======================Run===========================#
 root.mainloop()
