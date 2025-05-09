@@ -10,6 +10,7 @@ root.title("Slutprojekt")
 root.resizable(width=False, height=False)
 
 #==============Variabel=======================
+colour_player1 = "#f4ebd0"
 colour1 = "#b68d40"
 colour2 = "#122620"
 player1_turn_color = "#f4ebd0"
@@ -23,8 +24,6 @@ player1_score = 0
 player2_score = 0
 current_player = 1
 current_turn_score = 0
-if current_player == 1:
-    player1_turn_color = "#f4ebd0"
 # =======================Frames========================#
 
 top_first = Frame(root, width=400, height=50, bg=colour1)
@@ -114,7 +113,7 @@ btn_keep.pack(side=LEFT, padx=5, pady=5)
 
 
 # =======================Label & Entry=================#
-lbl_firstPlayer = Label(top_first, text="Spelare 1: 0", font=("T-25", 36), bg=colour1)
+lbl_firstPlayer = Label(top_first, text="Spelare 1: 0", font=("T-25", 36), bg=colour_player1)
 lbl_firstPlayer.pack(side=LEFT, padx=5, pady=5)
 lbl_secondPlayer = Label(top_second, text="Spelare 2: 0", font=("T-25", 36), bg=colour1)
 lbl_secondPlayer.pack(side=LEFT, padx=5, pady=5)
