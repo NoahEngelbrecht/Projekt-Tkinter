@@ -12,7 +12,7 @@ root.resizable(width=False, height=False)
 #==============Variabel=======================
 colour_player1 = "#f4ebd0"
 colour1 = "#b68d40"
-colour2 = "#122620"
+colour2 = "#d6ad60"
 player1_turn_color = "#f4ebd0"
 player2_turn_color = "#f4ebd0"
 
