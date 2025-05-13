@@ -9,7 +9,7 @@ root.geometry("400x500")
 root.title("Slutprojekt")
 root.resizable(width=False, height=False)
 
-#==============Variabel=======================
+#==============Variabel=======================#
 colour_player1 = "#f4ebd0"
 colour1 = "#b68d40"
 colour2 = "#d6ad60"
@@ -42,6 +42,9 @@ top_sixth.pack(side="top")
 # =======================Functions=====================#
 def throw():
     global current_turn_score
+    if not is_turn:
+        return
+
     dice_roll = random.randint(1, 6)
     result_dice.set(dice_roll)
     
@@ -79,10 +82,18 @@ def check_winner(score):
             root.quit()
         
 def switch_player():
-    global current_player
+    global current_player, is_turn
+    is_turn = False
     current_player = 2 if current_player == 1 else 1
     result_dice.set("")
     update_turn_label()
+    
+
+    root.after(1000, enable_turn)
+
+def enable_turn():
+    global is_turn
+    is_turn = True
 
 def update_turn_label():
     if current_player == 1:
@@ -93,7 +104,7 @@ def update_turn_label():
         lbl_firstPlayer.config(bg=colour1)
 
 def reset_game():
-    global player1_score, player2_score, current_player, current_turn_score
+    global player1_score, player2_score, current_player, current_turn_score, is_turn
     player1_score = 0
     player2_score = 0
     current_player = 1
@@ -103,16 +114,14 @@ def reset_game():
     lbl_secondPlayer.config(text="Spelare 2: 0", bg=colour1)
     result_dice.set("")
     update_turn_label()
-
-
+    is_turn = True
 # =======================Buttons=======================#
 btn_throw = Button(top_fifth, text="Kasta tärningen", width=16,font=("T-25", 36), bg=colour2, command=throw)
 btn_throw.pack(side=LEFT, padx=5, pady=5)
 btn_keep = Button(top_sixth, text="Behåll", width=6,font=("T-25", 36), bg=colour2, command=keep)
 btn_keep.pack(side=LEFT, padx=5, pady=5)
 
-
-# =======================Label & Entry=================#
+# =======================Label=========================#
 lbl_firstPlayer = Label(top_first, text="Spelare 1: 0", font=("T-25", 36), bg=colour_player1)
 lbl_firstPlayer.pack(side=LEFT, padx=5, pady=5)
 lbl_secondPlayer = Label(top_second, text="Spelare 2: 0", font=("T-25", 36), bg=colour1)
@@ -123,6 +132,6 @@ lbl_currentPoints.pack(side=LEFT, padx=5, pady=5)
 lbl_result = Label(top_fourth, bg=colour2, width=1, font=("T-25", 36), textvariable=result_dice)
 lbl_result.pack(side=LEFT,padx=5,pady=5)
 
-
 # =======================Run===========================#
+is_turn = True
 root.mainloop()
