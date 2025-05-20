@@ -10,14 +10,15 @@ root.title("Slutprojekt")
 root.resizable(width=False, height=False)
 
 #========================Variabel=============================#
-colour_player1 = "#f4ebd0"
+# Färgkoder för att ge allting färg och ändra färgen på spelaren baserat på vems tur det är. Av Barman
+start_colour_player1 = "#f4ebd0"
 colour1 = "#b68d40"
 colour2 = "#d6ad60"
 player1_turn_color = "#f4ebd0"
 player2_turn_color = "#f4ebd0"
 
 root.configure(bg=colour1)
-
+# Variabler för att sätta startvärde på flera värden, till exempel spelarnas poäng. Av Noah
 result_dice = StringVar()
 current_score = StringVar(value="Nuvarande poäng: 0")
 player1_score = 0
@@ -123,7 +124,7 @@ btn_keep = Button(top_sixth, text="Behåll", width=6,font=("T-25", 36), bg=colou
 btn_keep.pack(side=LEFT, padx=5, pady=5)
 
 # =======================Label=========================#
-lbl_firstPlayer = Label(top_first, text="Spelare 1: 0", font=("T-25", 36), bg=colour_player1) # Label för att visa sparade poängen för spelare 1. Av Noah
+lbl_firstPlayer = Label(top_first, text="Spelare 1: 0", font=("T-25", 36), bg=start_colour_player1) # Label för att visa sparade poängen för spelare 1. Av Noah
 lbl_firstPlayer.pack(side=LEFT, padx=5, pady=5)
 lbl_secondPlayer = Label(top_second, text="Spelare 2: 0", font=("T-25", 36), bg=colour1) # Label för att visa sparade poängen för spelare 2. Av Noah
 lbl_secondPlayer.pack(side=LEFT, padx=5, pady=5)
