@@ -91,6 +91,7 @@ def switch_player(): # Funktion för att byta spelare. Av Noah
     result_dice.set("")
     update_turn_label()
     
+    # Raden nedan hjälper till så att man inte råkar slå tärningen när spelaren byts. Gör så att inga knappar fungerar i en sekund. Av Noah
     root.after(1000, enable_turn)
 
 def enable_turn(): # Funktion för att ha koll på om det är en spelares tur, gjord för att kunna lägga till så att man inte råkar slå tärningen en extra gång efter att man har slått en etta. Av Noah
