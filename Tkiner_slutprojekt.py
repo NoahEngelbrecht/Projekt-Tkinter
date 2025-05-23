@@ -1,15 +1,18 @@
 #========================================Import===================================#
+
 from tkinter import *
 from tkinter import messagebox
 import random
 
-#=================Settings=====================================#
+#==================================Settings=======================================#
+
 root = Tk()
 root.geometry("400x500")
 root.title("Slutprojekt")
 root.resizable(width=False, height=False)
 
-#========================Variabel=============================#
+#=================================Variabel========================================#
+
 # Färgkoder för att ge allting färg och ändra färgen på spelaren baserat på vems tur det är. Av Barman
 start_colour_player1 = "#f4ebd0"
 colour1 = "#b68d40"
@@ -25,6 +28,7 @@ player1_score = 0
 player2_score = 0
 current_player = 1
 current_turn_score = 0
+
 # =======================Frames========================#
 
 # Frames för att kunna placera ut alla buttons och labels på korrekt plats. Av Noah
@@ -43,6 +47,7 @@ top_sixth = Frame(root, width=400, height=50, bg=colour1)
 top_sixth.pack(side="top")
 
 # =======================Functions=====================#
+
 def throw(): # Funktion för att man ska kunna slå tärningen och så att poängen ska adderas till nuvarande poäng. Av Noah
     global current_turn_score
     if not is_turn:
@@ -119,12 +124,14 @@ def reset_game(): # Funktion för att starta om spelet när en person har vunnit
     update_turn_label()
     is_turn = True
 # =======================Buttons=======================#
+
 btn_throw = Button(top_fifth, text="Kasta tärningen", width=16,font=("T-25", 36), bg=colour2, command=throw) # Knapp för att kasta tärningen. Av Noah
 btn_throw.pack(side=LEFT, padx=5, pady=5)
 btn_keep = Button(top_sixth, text="Behåll", width=6,font=("T-25", 36), bg=colour2, command=keep) # Knapp för att behålla nuvarande poäng. Av Noah
 btn_keep.pack(side=LEFT, padx=5, pady=5)
 
 # =======================Label=========================#
+
 lbl_firstPlayer = Label(top_first, text="Spelare 1: 0", font=("T-25", 36), bg=start_colour_player1) # Label för att visa sparade poängen för spelare 1. Av Noah
 lbl_firstPlayer.pack(side=LEFT, padx=5, pady=5)
 lbl_secondPlayer = Label(top_second, text="Spelare 2: 0", font=("T-25", 36), bg=colour1) # Label för att visa sparade poängen för spelare 2. Av Noah
@@ -136,5 +143,6 @@ lbl_result = Label(top_fourth, bg=colour2, width=1, font=("T-25", 36), textvaria
 lbl_result.pack(side=LEFT,padx=5,pady=5)
 
 # =======================Run===========================#
+
 is_turn = True
 root.mainloop()
